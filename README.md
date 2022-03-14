@@ -1,2 +1,2 @@
 # farmBot
-monitor weather of your small farm over irc.
+monitor weather of your small farms over irc.
