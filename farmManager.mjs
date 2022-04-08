@@ -102,7 +102,7 @@ const farmManager = {
             if (message == '@forecast') {
                 //monitor command should contain username and location.
                 //pull from json file to determine place to monitor
-                
+                farmManager.client.say(to,'let me check the forecast for your selected locations...');
                 Object.entries(locations).forEach((entry)=>{
                     let key = entry[0];
                     let value = entry[1];
@@ -110,7 +110,7 @@ const farmManager = {
                     if (key == from) {
                         console.log(key,value);
                         if (value.length == 0) {
-                            farmManager.client.say(channel,`lol you don't have any locations to monitor, add some by saying farmbot monitor city st`);
+                            farmManager.client.say(to,`lol you don't have any locations to monitor, add some by saying farmbot monitor city st`);
                         }
                         for (const v of value) {
                             //iterate through the saved json data
@@ -137,7 +137,7 @@ const farmManager = {
     init: async function() {
         console.log('init called.');
         await farmManager.client.say(channel,'FarmBot here, ready to monitor weather conditions for your selected area.');
-        farmManager.listen();
+        await farmManager.listen();
     },
     load: async function () {
         console.log('load called.');
@@ -147,13 +147,13 @@ const farmManager = {
         console.log('unload called.');
         console.log(farmManager.client._events);
         await farmManager.client.say(channel,'FarmBot down for maintenance.');
-        await farmManager.client.removeListener('message',farmManager.client._events.message);
+        //await farmManager.client.removeListener('message',farmManager.client._events.message);
     },
     getDetailedForcast: async function(location,user) {
 
     },
     getForecast: async function(location = 'cheney ks', user) {
-        farmManager.client.say(user,'let me check the forecast...');
+        
         try {
             console.log(user);
             let message = user+'\n'+location+':\n';

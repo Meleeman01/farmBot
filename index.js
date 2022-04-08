@@ -16,8 +16,8 @@ const moduleExists = function(path) {
 };
 
 async function importFresh(modulePath) {
-  const cacheBustingModulePath = `${modulePath}?update=${Date.now()}`
-  return (await import(cacheBustingModulePath)).default
+    const cacheBustingModulePath = `${modulePath}?update=${Date.now()}`;
+    return (await import(cacheBustingModulePath)).default;
 }
 
 
