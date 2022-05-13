@@ -24,16 +24,16 @@ async function importFresh(modulePath) {
 //use pms to send commands to reload chihobot
 client.addListener('pm', async function (from, message) {
     console.log(from + ' => ME: ' + message);
-    if (from == 'meleeman' && message == ':load farmBot') {
+    if (from == 'meleeman' && message == ':load') {
         let a = await importFresh(farmBotPath);
         await a.init();
     }
-    if (from == 'meleeman' && message == ':reload farmBot') {
+    if (from == 'meleeman' && message == ':reload') {
         let a = await importFresh(farmBotPath);
         await a.unload();
         await a.init();
     }
-    if (from == 'meleeman' && message == ':unload farmBot') {
+    if (from == 'meleeman' && message == ':unload') {
         let a = await importFresh(farmBotPath);
 
         await a.unload();
